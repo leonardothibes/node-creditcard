@@ -22,21 +22,22 @@ Basic Usage
 ```js
 const CreditCard = require('node-creditcard');
 
+// Passing data to constructor.
 const creditcard = new CreditCard({
     number    : '4532 8624 0496 9398',
     holder    : 'FULANO D TAL',
     expiration: '04/2019',
     cvv       : '123',
+});
+// Passing data to constructor.
 
-// Or alternative mode
-
+// Passing data individually.
 const creditcard      = new CreditCard();
 creditcard.number     = '4532 8624 0496 9398';
 creditcard.holder     = 'FULANO D TAL';
 creditcard.expiration = '04/2019';
 creditcard.cvv        = '123';
-
-});
+// Passing data individually.
 
 const validation = creditcard.validate();
 ```
