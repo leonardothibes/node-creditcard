@@ -17,6 +17,7 @@ Examples
 * [Basic Usage](#basic-usage)
 * [Find Brand](#find-brand)
 * [Get Data](#get-data)
+* [Get Safe Data](#get-safe-data)
 
 Basic Usage
 -----------
@@ -53,6 +54,22 @@ The validation object returned by __validate()__ will looks like this:
 }
 ```
 
+Find Brand
+----------
+
+```js
+const CreditCard = require('node-creditcard');
+
+const creditcard = new CreditCard({
+    number    : '4532862404969398',
+    holder    : 'FULANO D TAL',
+    expiration: '04/2019',
+    cvv       : '123',
+});
+
+creditcard.findBrand();  // returns 'VISA'
+```
+
 Get Data
 --------
 
@@ -78,8 +95,8 @@ The data object returned by __validate()__ will looks like this:
 }
 ```
 
-Find Brand
-----------
+Get Safe Data
+-------------
 
 ```js
 const CreditCard = require('node-creditcard');
@@ -91,7 +108,16 @@ const creditcard = new CreditCard({
     cvv       : '123',
 });
 
-creditcard.findBrand();  // returns 'VISA'
+const data = creditcard.getSafeData();
+```
+The data object returned by __validate()__ will looks like this:
+```js
+{
+    number    : '4532 **** **** 9398',
+    holder    : 'FULANO D TAL',
+    expiration: '04/2019',
+    cvv       : '***',
+}
 ```
 
 Test and development
