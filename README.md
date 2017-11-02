@@ -15,6 +15,8 @@ Examples
 --------
 
 * [Basic Usage](#basic-usage)
+* [Find Brand](#find-brand)
+* [Get Data](#get-data)
 
 Basic Usage
 -----------
@@ -24,7 +26,7 @@ const CreditCard = require('node-creditcard');
 
 // Passing data to constructor.
 const creditcard = new CreditCard({
-    number    : '4532 8624 0496 9398',
+    number    : '4532862404969398',
     holder    : 'FULANO D TAL',
     expiration: '04/2019',
     cvv       : '123',
@@ -41,7 +43,6 @@ creditcard.cvv        = '123';
 
 const validation = creditcard.validate();
 ```
-
 The validation object returned by __validate()__ will looks like this:
 ```js
 {
@@ -50,6 +51,47 @@ The validation object returned by __validate()__ will looks like this:
     validCvv       : true,
     isExpired      : false,
 }
+```
+
+Get Data
+--------
+
+```js
+const CreditCard = require('node-creditcard');
+
+const creditcard = new CreditCard({
+    number    : '4532862404969398',
+    holder    : 'FULANO D TAL',
+    expiration: '04/2019',
+    cvv       : '123',
+});
+
+const data = creditcard.getData();  // returns 'VISA'
+```
+The data object returned by __validate()__ will looks like this:
+```js
+{
+    number    : '4532862404969398',
+    holder    : 'FULANO D TAL',
+    expiration: '04/2019',
+    cvv       : '123',
+}
+```
+
+Find Brand
+----------
+
+```js
+const CreditCard = require('node-creditcard');
+
+const creditcard = new CreditCard({
+    number    : '4532862404969398',
+    holder    : 'FULANO D TAL',
+    expiration: '04/2019',
+    cvv       : '123',
+});
+
+creditcard.findBrand();  // returns 'VISA'
 ```
 
 Test and development
