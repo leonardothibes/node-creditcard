@@ -1,17 +1,17 @@
 {
-  "name": "nome-do-projeto",
-  "version": "0.2.0",
-  "description": "Aqui vai uma pequena descrição do projeto",
+  "name": "node-creditcard",
+  "version": "0.1.0",
+  "description": "Entidade de negócio para cartões de crédito",
   "main": "index.js",
-  "homepage": "https://github.com/leonardothibes/nome-do-projeto#readme",
+  "homepage": "https://github.com/leonardothibes/node-creditcard#readme",
   "author": "Leonardo Thibes <leonardothibes@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leonardothibes/nome-do-projeto.git"
+    "url": "git+https://github.com/leonardothibes/node-creditcard.git"
   },
   "bugs": {
-    "url": "https://github.com/leonardothibes/nome-do-projeto/issues"
+    "url": "https://github.com/leonardothibes/node-creditcard/issues"
   },
   "keywords": [
     "skeleton"
