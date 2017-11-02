@@ -66,7 +66,7 @@ const creditcard = new CreditCard({
     cvv       : '123',
 });
 
-const data = creditcard.getData();  // returns 'VISA'
+const data = creditcard.getData();
 ```
 The data object returned by __validate()__ will looks like this:
 ```js
