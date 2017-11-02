@@ -27,6 +27,15 @@ const creditcard = new CreditCard({
     holder    : 'FULANO D TAL',
     expiration: '04/2019',
     cvv       : '123',
+
+// Or alternative mode
+
+const creditcard      = new CreditCard();
+creditcard.number     = '4532 8624 0496 9398';
+creditcard.holder     = 'FULANO D TAL';
+creditcard.expiration = '04/2019';
+creditcard.cvv        = '123';
+
 });
 
 const validation = creditcard.validate();
