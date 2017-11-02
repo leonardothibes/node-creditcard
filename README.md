@@ -14,13 +14,32 @@ npm install node-creditcard --save
 Examples
 --------
 
-* [Some function](#some-function)
+* [Basic Usage](#basic-usage)
 
-Some function
--------------
+Basic Usage
+-----------
 
 ```js
-// Aqui vão os exemplos de uso.
+const CreditCard = require('node-creditcard');
+
+const creditcard = new CreditCard({
+    number    : '4532 8624 0496 9398',
+    holder    : 'FULANO D TAL',
+    expiration: '04/2019',
+    cvv       : '123',
+});
+
+const validation = creditcard.validate();
+```
+
+The validation object returned by __validate()__ will looks like this:
+```js
+{
+    validCardNumber: true,
+    validHolder    : true,
+    validCvv       : true,
+    isExpired      : false,
+}
 ```
 
 Test and development
