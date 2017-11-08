@@ -30,11 +30,6 @@ const numbers = [
         masked  : '4514 1600 5893 1695',
     },
     {
-        // AMEX
-        unmasked: '340958930386006',
-        masked  : '3409 589303 86006',
-    },
-    {
         // DISCOVER
         unmasked: '6011899731549951',
         masked  : '6011 8997 3154 9951',
@@ -44,4 +39,27 @@ const numbers = [
         unmasked: '6062823434266992',
         masked  : '6062 8234 3426 6992',
     },
+    {
+        // AMEX
+        unmasked: '340958930386006',
+        masked  : '3409 589303 86006',
+    },
 ];
+
+describe('Decorator', function()
+{
+    numbers.forEach(function(number)
+    {
+        it('Is Masked..: ' + number.masked, function(done)
+        {
+            assert.bool(decorator.isMasked(number.masked)).isTrue();
+            done();
+        });
+
+        it('Is UnMasked: ' + number.unmasked, function(done)
+        {
+            assert.bool(decorator.isMasked(number.unmasked)).isFalse();
+            done();
+        });
+    });
+});
