@@ -1,6 +1,6 @@
 {
   "name": "node-creditcard",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Entidade de negócio para cartões de crédito",
   "main": "index.js",
   "homepage": "https://github.com/leonardothibes/node-creditcard#readme",

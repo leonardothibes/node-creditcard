@@ -2,7 +2,7 @@
 
 AINDA EM DESENVOLVIMENTO. NÃO HÁ NADA FUNCIONAL AQUI, VOLTE OUTRO DIA!
 
-Funções utilitárias para tratamentos de dados de cartão de crédito.
+Funções utilitárias para tratamento de dados de cartão de crédito.
 
 Installation
 ------------
