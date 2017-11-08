@@ -44,7 +44,7 @@ creditcard.expiration = '04/2019';
 creditcard.cvv        = '123';
 // Passing data individually.
 
-creditcard.isValid() // returns TRUE
+creditcard.isValid(); // returns TRUE
 
 const validation = creditcard.validate();
 ```
