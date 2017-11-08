@@ -44,6 +44,8 @@ creditcard.expiration = '04/2019';
 creditcard.cvv        = '123';
 // Passing data individually.
 
+creditcard.isValid() // returns TRUE
+
 const validation = creditcard.validate();
 ```
 The validation object returned by __validate()__ will looks like this:
