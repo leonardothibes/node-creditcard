@@ -2,7 +2,7 @@
 
 AINDA EM DESENVOLVIMENTO. NÃO HÁ NADA FUNCIONAL AQUI, VOLTE OUTRO DIA!
 
-Entidade de negócio para cartões de crédito.
+Funções utilitárias para tratamentos de dados de cartão de crédito.
 
 Installation
 ------------
