@@ -15,9 +15,10 @@ Examples
 --------
 
 * [Basic Usage](#basic-usage)
-* [Find Brand](#find-brand)
 * [Get Data](#get-data)
 * [Get Safe Data](#get-safe-data)
+* [Mask Number](#mask-number)
+* [UnMask Number](#unmask-number)
 
 Basic Usage
 -----------
@@ -47,27 +48,12 @@ const validation = creditcard.validate();
 The validation object returned by __validate()__ will looks like this:
 ```js
 {
+    brand          : 'VISA',
     validCardNumber: true,
     validHolder    : true,
     validCvv       : true,
     isExpired      : false,
 }
-```
-
-Find Brand
-----------
-
-```js
-const CreditCard = require('node-creditcard');
-
-const creditcard = new CreditCard({
-    number    : '4532862404969398',
-    holder    : 'FULANO D TAL',
-    expiration: '04/2019',
-    cvv       : '123',
-});
-
-creditcard.findBrand();  // returns 'VISA'
 ```
 
 Get Data
@@ -88,6 +74,7 @@ const data = creditcard.getData();
 The data object returned by __validate()__ will looks like this:
 ```js
 {
+    brand     : 'VISA',
     number    : '4532862404969398',
     holder    : 'FULANO D TAL',
     expiration: '04/2019',
@@ -113,11 +100,77 @@ const data = creditcard.getSafeData();
 The data object returned by __validate()__ will looks like this:
 ```js
 {
+    brand     : 'VISA',
     number    : '4532 **** **** 9398',
     holder    : 'FULANO D TAL',
     expiration: '04/2019',
     cvv       : '***',
 }
+```
+
+```js
+const CreditCard = require('node-creditcard');
+
+const creditcard = new CreditCard({
+    number    : '4532862404969398',
+    holder    : 'FULANO D TAL',
+    expiration: '04/2019',
+    cvv       : '123',
+});
+
+const data = creditcard.getSafeData();
+```
+
+Mask Number
+-----------
+
+```js
+const CreditCard = require('node-creditcard');
+
+const creditcard = new CreditCard({
+    number: '4532862404969398',
+});
+
+creditcard.mask(); // returns '4532 8624 0496 9398'
+```
+
+Or statically call:
+
+```js
+const CreditCard = require('node-creditcard');
+
+creditcard.mask('4532862404969398'); // returns '4532 8624 0496 9398'
+```
+
+UnMask Number
+-------------
+
+```js
+const CreditCard = require('node-creditcard');
+
+const creditcard = new CreditCard({
+    number: '4532 8624 0496 9398',
+});
+
+creditcard.mask(); // returns '4532862404969398'
+```
+
+Or statically call:
+
+```js
+const CreditCard = require('node-creditcard');
+
+creditcard.mask('4532 8624 0496 9398'); // returns '4532862404969398'
+```
+
+Is Masked
+---------
+
+```js
+const CreditCard = require('node-creditcard');
+
+creditcard.isMasked('4532 8624 0496 9398'); // returns TRUE
+creditcard.isMasked('4532862404969398');    // returns FALSE
 ```
 
 Test and development
