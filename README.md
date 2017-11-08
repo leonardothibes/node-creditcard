@@ -74,7 +74,7 @@ const creditcard = new CreditCard({
 
 const data = creditcard.getData();
 ```
-The data object returned by __validate()__ will looks like this:
+The data object returned by __getData()__ will looks like this:
 ```js
 {
     brand     : 'VISA',
@@ -100,7 +100,7 @@ const creditcard = new CreditCard({
 
 const data = creditcard.getSafeData();
 ```
-The data object returned by __validate()__ will looks like this:
+The data object returned by __getSafeData()__ will looks like this:
 ```js
 {
     brand     : 'VISA',
