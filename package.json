@@ -1,6 +1,6 @@
 {
   "name": "node-creditcard",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Funções utilitárias para tratamento de dados de cartão de crédito",
   "main": "index.js",
   "homepage": "https://github.com/leonardothibes/node-creditcard#readme",
@@ -59,6 +59,7 @@
     }
   },
   "dependencies": {
+    "creditcard-generator": "0.0.7",
     "creditcard-identifier": "^1.1.0"
   },
   "devDependencies": {
