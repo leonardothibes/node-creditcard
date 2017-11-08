@@ -37,7 +37,7 @@ const numbers = [
     {
         // DINERS
         unmasked: '30225490720544',
-        masked  : '3022 5490 7205 44',
+        masked  : '3022 549072 0544',
     },
     {
         // AMEX
