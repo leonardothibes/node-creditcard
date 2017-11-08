@@ -33,7 +33,7 @@ const cards = [
         brand : 'DINERS',
     },
     {
-        number: '3022 5490 7205 44',
+        number: '3022 549072 0544',
         brand : 'DINERS',
     },
     {
