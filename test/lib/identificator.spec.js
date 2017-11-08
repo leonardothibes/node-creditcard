@@ -120,7 +120,7 @@ describe('Identificator', function()
 
     invalid.forEach(function(number)
     {
-        it('Can`t ientify: ' + number, function(done)
+        it('Can`t identify: ' + number, function(done)
         {
             assert.string(identificator.identify(number)).isEqualTo('UNKNOW');
             done();
