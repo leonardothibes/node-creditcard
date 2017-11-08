@@ -20,11 +20,6 @@ const numbers = [
         masked  : '5244 4308 3785 8152',
     },
     {
-        // DINERS
-        unmasked: '30225490720544',
-        masked  : '3022 5490 7205 44',
-    },
-    {
         // ELO
         unmasked: '4514160058931695',
         masked  : '4514 1600 5893 1695',
@@ -38,6 +33,11 @@ const numbers = [
         // HIPERCARD
         unmasked: '6062823434266992',
         masked  : '6062 8234 3426 6992',
+    },
+    {
+        // DINERS
+        unmasked: '30225490720544',
+        masked  : '3022 5490 7205 44',
     },
     {
         // AMEX
@@ -59,6 +59,24 @@ describe('Decorator', function()
         it('Is UnMasked: ' + number.unmasked, function(done)
         {
             assert.bool(decorator.isMasked(number.unmasked)).isFalse();
+            done();
+        });
+
+        it('Mask.......: ' + number.unmasked, function(done)
+        {
+            assert.string(decorator.mask(number.unmasked)).isEqualTo(number.masked);
+            done();
+        });
+
+        it('Mask Double: ' + number.masked, function(done)
+        {
+            assert.string(decorator.mask(number.masked)).isEqualTo(number.masked);
+            done();
+        });
+
+        it('UnMask.....: ' + number.masked, function(done)
+        {
+            assert.string(decorator.unMask(number.masked)).isEqualTo(number.unmasked);
             done();
         });
     });
