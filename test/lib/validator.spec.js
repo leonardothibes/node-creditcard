@@ -62,6 +62,39 @@ const expirationValid = [
     '09/19',
 ];
 
+const expirationinValid = [
+    '09/20190',
+    '009/2019',
+    '09/190',
+    '009/19',
+    '09',
+    '19',
+    '',
+    ' ',
+    '1',
+    'a',
+    true,
+    false,
+    null,
+    undefined,
+];
+
+const validCvv = [
+    '123',
+    '1234'
+];
+
+const invalidCvv = [
+    '',
+    ' ',
+    '1',
+    'a',
+    true,
+    false,
+    null,
+    undefined,
+];
+
 describe('Validator', function()
 {
     valid.forEach(function(number)
@@ -82,6 +115,24 @@ describe('Validator', function()
         });
     });
 
+    validCvv.forEach(function(cvv)
+    {
+        it('Valid CVV: ' + cvv, function(done)
+        {
+            assert.bool(validator.cvv(cvv)).isTrue();
+            done();
+        });
+    });
+
+    invalidCvv.forEach(function(cvv)
+    {
+        it('Invalid CVV: ' + cvv, function(done)
+        {
+            assert.bool(validator.cvv(cvv)).isFalse();
+            done();
+        });
+    });
+
     expirationValid.forEach(function(expiration)
     {
         it('Exiration Valid: ' + expiration, function(done)
@@ -91,6 +142,20 @@ describe('Validator', function()
             assert.object(validation);
             assert.bool(validation.validFormat).isTrue();
             assert.bool(validation.isExpired).isFalse();
+
+            done();
+        });
+    });
+
+    expirationinValid.forEach(function(expiration)
+    {
+        it('Exiration Invalid: ' + expiration, function(done)
+       {
+            const validation = validator.expiration(expiration);
+
+            assert.object(validation);
+            assert.bool(validation.validFormat).isFalse();
+            assert.bool(validation.isExpired).isTrue();
 
             done();
         });
