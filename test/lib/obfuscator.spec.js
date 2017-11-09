@@ -46,6 +46,17 @@ const numbers = [
     },
 ];
 
+const cvvs = [
+    {
+        unObfuscated: '123',
+        obfuscated  : '***'
+    },
+    {
+        unObfuscated: '1234',
+        obfuscated  : '****'
+    },
+];
+
 describe('Obfuscator', function()
 {
     numbers.forEach(function(number)
@@ -65,6 +76,27 @@ describe('Obfuscator', function()
         it('Obfuscating Number: ' + number.unObfuscated + ' -> ' + number.obfuscated, function(done)
         {
             assert.string(obfuscator.number(number.unObfuscated)).isEqualTo(number.obfuscated);
+            done();
+        });
+    });
+
+    cvvs.forEach(function(cvv)
+    {
+        it('Is Obfuscated: ' + cvv.obfuscated, function(done)
+        {
+            assert.bool(obfuscator.isObfuscated(cvv.obfuscated)).isTrue();
+            done();
+        });
+
+        it('Is Not Obfuscated: ' + cvv.unObfuscated, function(done)
+        {
+            assert.bool(obfuscator.isObfuscated(cvv.unObfuscated)).isFalse();
+            done();
+        });
+
+        it('Obfuscating CVV: ' + cvv.unObfuscated + ' -> ' + cvv.obfuscated, function(done)
+        {
+            assert.string(obfuscator.cvv(cvv.unObfuscated)).isEqualTo(cvv.obfuscated);
             done();
         });
     });
