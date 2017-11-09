@@ -17,9 +17,6 @@ Examples
 * [Basic Usage](#basic-usage)
 * [Get Data](#get-data)
 * [Get Safe Data](#get-safe-data)
-* [Mask Number](#mask-number)
-* [UnMask Number](#unmask-number)
-* [Is Masked](#is-masked)
 
 Basic Usage
 -----------
