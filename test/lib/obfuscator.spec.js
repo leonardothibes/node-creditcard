@@ -78,6 +78,12 @@ describe('Obfuscator', function()
             assert.string(obfuscator.number(number.unObfuscated)).isEqualTo(number.obfuscated);
             done();
         });
+
+        it('Double Obfuscating Number: ' + number.obfuscated + ' -> ' + number.obfuscated, function(done)
+        {
+            assert.string(obfuscator.number(number.obfuscated)).isEqualTo(number.obfuscated);
+            done();
+        });
     });
 
     cvvs.forEach(function(cvv)
@@ -97,6 +103,12 @@ describe('Obfuscator', function()
         it('Obfuscating CVV: ' + cvv.unObfuscated + ' -> ' + cvv.obfuscated, function(done)
         {
             assert.string(obfuscator.cvv(cvv.unObfuscated)).isEqualTo(cvv.obfuscated);
+            done();
+        });
+
+        it('Double Obfuscating CVV: ' + cvv.obfuscated + ' -> ' + cvv.obfuscated, function(done)
+        {
+            assert.string(obfuscator.cvv(cvv.obfuscated)).isEqualTo(cvv.obfuscated);
             done();
         });
     });
