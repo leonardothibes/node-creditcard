@@ -6,33 +6,101 @@ const identificator = require('../../lib/identificator'),
       generator     = require('../../lib/generator'),
       assert        = require('unit.js');
 
+const brands = [
+    'visa',
+    'master',
+    'mastercard',
+    'amex',
+    'diners',
+    'elo',
+    'hipercard',
+];
+
 describe('Generator', function()
 {
-    it('VISA UnMasked', function(done)
+    it ('Invalid/Unsupported Brand', function(done)
     {
-        const generated = generator.generate('visa', false, 3);
-
-        generated.forEach(function(number)
-        {
-            assert.bool(validator.validate(number)).isTrue();
-            assert.bool(decorator.isMasked(number)).isFalse();
-            assert.string(identificator.identify(number)).isEqualTo('VISA');
-        });
-
+        const generated = generator.generate('UNSUPPORTED');
+        assert.array(generated).hasLength(0);
         done();
     });
 
-    it('VISA Masked', function(done)
+    brands.forEach(function(brand)
     {
-        const generated = generator.generate('visa', true, 3);
-
-        generated.forEach(function(number)
+        it(brand.toUpperCase() + ' UnMasked (default)', function(done)
         {
-            assert.bool(validator.validate(number)).isTrue();
-            assert.bool(decorator.isMasked(number)).isTrue();
-            assert.string(identificator.identify(number)).isEqualTo('VISA');
+            const generated = generator.generate(brand, false);
+            assert.array(generated).hasLength(1);
+
+            generated.forEach(function(number)
+            {
+                assert.bool(validator.validate(number)).isTrue();
+                assert.bool(decorator.isMasked(number)).isFalse();
+                if (brand === 'master') {
+                    assert.string(identificator.identify(number)).isEqualTo('MASTERCARD');
+                } else {
+                    assert.string(identificator.identify(number)).isEqualTo(brand.toUpperCase());
+                }
+            });
+
+            done();
         });
 
-        done();
+        it(brand.toUpperCase() + ' Masked (default)', function(done)
+        {
+            const generated = generator.generate(brand, true);
+            assert.array(generated).hasLength(1);
+
+            generated.forEach(function(number)
+            {
+                assert.bool(validator.validate(number)).isTrue();
+                assert.bool(decorator.isMasked(number)).isTrue();
+                if (brand === 'master') {
+                    assert.string(identificator.identify(number)).isEqualTo('MASTERCARD');
+                } else {
+                    assert.string(identificator.identify(number)).isEqualTo(brand.toUpperCase());
+                }
+            });
+
+            done();
+        });
+
+        it(brand.toUpperCase() + ' UnMasked (3x)', function(done)
+        {
+            const generated = generator.generate(brand, false, 3);
+            assert.array(generated).hasLength(3);
+
+            generated.forEach(function(number)
+            {
+                assert.bool(validator.validate(number)).isTrue();
+                assert.bool(decorator.isMasked(number)).isFalse();
+                if (brand === 'master') {
+                    assert.string(identificator.identify(number)).isEqualTo('MASTERCARD');
+                } else {
+                    assert.string(identificator.identify(number)).isEqualTo(brand.toUpperCase());
+                }
+            });
+
+            done();
+        });
+
+        it(brand.toUpperCase() + ' Masked (3x)', function(done)
+        {
+            const generated = generator.generate(brand, true, 3);
+            assert.array(generated).hasLength(3);
+
+            generated.forEach(function(number)
+            {
+                assert.bool(validator.validate(number)).isTrue();
+                assert.bool(decorator.isMasked(number)).isTrue();
+                if (brand === 'master') {
+                    assert.string(identificator.identify(number)).isEqualTo('MASTERCARD');
+                } else {
+                    assert.string(identificator.identify(number)).isEqualTo(brand.toUpperCase());
+                }
+            });
+
+            done();
+        });
     });
 });
