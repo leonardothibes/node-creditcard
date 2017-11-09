@@ -55,6 +55,7 @@ The validation object returned by __validate()__ will looks like this:
     validCardNumber: true,
     validHolder    : true,
     validCvv       : true,
+    validExpiration: true,
     isExpired      : false,
 }
 ```
