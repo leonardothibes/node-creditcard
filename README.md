@@ -112,58 +112,6 @@ The data object returned by __getSafeData()__ will looks like this:
 }
 ```
 
-Mask Number
------------
-
-```js
-const CreditCard = require('node-creditcard');
-
-const creditcard = new CreditCard({
-    number: '4532862404969398',
-});
-
-creditcard.mask(); // returns '4532 8624 0496 9398'
-```
-
-Or statically call:
-
-```js
-const CreditCard = require('node-creditcard');
-
-creditcard.mask('4532862404969398'); // returns '4532 8624 0496 9398'
-```
-
-UnMask Number
--------------
-
-```js
-const CreditCard = require('node-creditcard');
-
-const creditcard = new CreditCard({
-    number: '4532 8624 0496 9398',
-});
-
-creditcard.mask(); // returns '4532862404969398'
-```
-
-Or statically call:
-
-```js
-const CreditCard = require('node-creditcard');
-
-creditcard.mask('4532 8624 0496 9398'); // returns '4532862404969398'
-```
-
-Is Masked
----------
-
-```js
-const CreditCard = require('node-creditcard');
-
-creditcard.isMasked('4532 8624 0496 9398'); // returns TRUE
-creditcard.isMasked('4532862404969398');    // returns FALSE
-```
-
 Test and development
 --------------------
 
