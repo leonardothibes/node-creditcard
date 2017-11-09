@@ -3,6 +3,7 @@
 const identificator = require('./lib/identificator'),
       validator     = require('./lib/validator'),
       decorator     = require('./lib/decorator'),
+      obfuscator    = require('./lib/obfuscator'),
       generator     = require('./lib/generator');
 
 /**
@@ -187,10 +188,10 @@ module.exports = class
     {
         return {
             brand     : this.brand,
-            number    : this.number,
+            number    : obfuscator.number(this.number),
             holder    : this.holder,
             expiration: this.expiration,
-            cvv       : this.cvv,
+            cvv       : obfuscator.cvv(this.cvv),
         };
     }
 };
