@@ -160,4 +160,15 @@ describe('Validator', function()
             done();
         });
     });
+
+    it('Expiration Expired', function(done)
+    {
+        const validation = validator.expiration('01/2001');
+
+        assert.object(validation);
+        assert.bool(validation.validFormat).isTrue();
+        assert.bool(validation.isExpired).isTrue();
+
+        done();
+    });
 });
