@@ -57,6 +57,11 @@ const invalid = [
     undefined,
 ];
 
+const expirationValid = [
+    '09/2019',
+    '09/19',
+];
+
 describe('Validator', function()
 {
     valid.forEach(function(number)
@@ -73,6 +78,20 @@ describe('Validator', function()
         it('Invalid: ' + number, function(done)
         {
             assert.bool(validator.validate(number)).isFalse();
+            done();
+        });
+    });
+
+    expirationValid.forEach(function(expiration)
+    {
+        it('Exiration Valid: ' + expiration, function(done)
+        {
+            const validation = validator.expiration(expiration);
+
+            assert.object(validation);
+            assert.bool(validation.validFormat).isTrue();
+            assert.bool(validation.isExpired).isFalse();
+
             done();
         });
     });
