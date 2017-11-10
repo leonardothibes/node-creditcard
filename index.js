@@ -208,6 +208,18 @@ module.exports = class
     }
 
     /**
+     * Identifica a bandeira de um cartão de crédito através do seu número.
+     *
+     * @param {String} number
+     *
+     * @return {String}
+     */
+    static identify(number)
+    {
+        return identificator.identify(number);
+    }
+
+    /**
      * Gera números de cartão de crédito válidos.
      *
      * @param {String} brand  Bandeira desejada.

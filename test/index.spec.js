@@ -197,6 +197,18 @@ describe('Entry Point', function()
 
             done();
         });
+
+        it('Identifying UnMasked: ' + data.maskedNumber + ' => ' + data.brand, function(done)
+        {
+            assert.string(CreditCard.identify(data.rawNumber)).isEqualTo(data.brand);
+            done();
+        });
+
+        it('Identifying Masked: ' + data.maskedNumber + ' => ' + data.brand, function(done)
+        {
+            assert.string(CreditCard.identify(data.maskedNumber)).isEqualTo(data.brand);
+            done();
+        });
     });
 
     it('Initial Values 1', function(done)
