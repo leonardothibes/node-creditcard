@@ -1,6 +1,16 @@
 # node-creditcard [![NPM Package](https://badge.fury.io/js/node-creditcard.svg)](https://www.npmjs.com/package/node-creditcard) ![Downloads](https://img.shields.io/npm/dm/node-creditcard.svg) [![Build Status](https://secure.travis-ci.org/leonardothibes/node-creditcard.png)](http://travis-ci.org/leonardothibes/node-creditcard) [![Package Quality](http://npm.packagequality.com/shield/node-creditcard.svg)](http://packagequality.com/#?package=node-creditcard)
 
-Funções utilitárias para tratamento de dados de cartão de crédito.
+Utilities functions for credit cards treatment.
+
+Supported Brands:
+
+* VISA
+* MASTERCARD
+* DINERS CLUB
+* AMERICAN EXPRESS
+* HIPERCARD
+* ELO
+* DISCOVER
 
 Installation
 ------------
@@ -16,6 +26,7 @@ Examples
 * [Get Data](#get-data)
 * [Get Safe Data](#get-safe-data)
 * [Identify Brand](#identify-brand)
+* [Mask or Unmask Number](#mask-or-unmask-number)
 * [Generate](#generate)
 
 Basic Usage
@@ -123,6 +134,20 @@ creditcard.identify('5194 1897 0673 1425'); // returns 'MASTERCARD'
 
 creditcard.identify('376921693572268');    // returns 'AMEX'
 creditcard.identify('3769 216935 72268');  // returns 'AMEX'
+
+```
+
+Mask or Unmask Number
+---------------------
+
+```js
+const CreditCard = require('node-creditcard');
+
+creditcard.isMasked('4716058940605004'); // returns FALSE
+creditcard.mask('4716058940605004');     // returns '4716 0589 4060 5004'
+
+creditcard.isMasked('4716 0589 4060 5004'); // returns TRUE
+creditcard.unMask('4716 0589 4060 5004');   // returns '4716058940605004'
 
 ```
 
