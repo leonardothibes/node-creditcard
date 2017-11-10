@@ -129,6 +129,16 @@ module.exports = class
     }
 
     /**
+     * Data de validade do cartão em formato reverso.
+     *
+     * @return {String}
+     */
+    get expirationReverse()
+    {
+        return decorator.expirationReverse(this._expiration);
+    }
+
+    /**
      * @param {String} cvv
      */
     set cvv(cvv)

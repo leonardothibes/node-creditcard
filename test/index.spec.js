@@ -15,6 +15,7 @@ const validCards = [
         cvv         : '166',
         safeCvv     : '***',
         expiration  : '01/2050',
+        expirationR : '2050/01',
     },
     {
         brand       : 'VISA',
@@ -24,6 +25,7 @@ const validCards = [
         cvv         : '517',
         safeCvv     : '***',
         expiration  : '01/2050',
+        expirationR : '2050/01',
     },
     {
         brand       : 'MASTERCARD',
@@ -33,6 +35,7 @@ const validCards = [
         cvv         : '831',
         safeCvv     : '***',
         expiration  : '01/2050',
+        expirationR : '2050/01',
     },
     {
         brand       : 'DINERS',
@@ -42,6 +45,7 @@ const validCards = [
         cvv         : '536',
         safeCvv     : '***',
         expiration  : '01/2050',
+        expirationR : '2050/01',
     },
     {
         brand       : 'AMEX',
@@ -51,6 +55,7 @@ const validCards = [
         cvv         : '5710',
         safeCvv     : '****',
         expiration  : '01/2050',
+        expirationR : '2050/01',
     },
     {
         brand       : 'HIPERCARD',
@@ -60,6 +65,7 @@ const validCards = [
         cvv         : '123',
         safeCvv     : '***',
         expiration  : '01/2050',
+        expirationR : '2050/01',
     },
     {
         brand       : 'ELO',
@@ -69,6 +75,7 @@ const validCards = [
         cvv         : '203',
         safeCvv     : '***',
         expiration  : '01/2050',
+        expirationR : '2050/01',
     },
 ];
 
@@ -120,6 +127,8 @@ describe('Entry Point', function()
                 expiration: data.expiration,
                 cvv       : data.cvv,
             });
+
+            assert.string(card.expirationReverse).isEqualTo(data.expirationR);
 
             done();
         });
