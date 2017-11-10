@@ -220,6 +220,42 @@ module.exports = class
     }
 
     /**
+     * Identifica se um número de cartão de crédito está ou não com máscara.
+     *
+     * @param {String} number
+     *
+     * @return {Bool}
+     */
+    static isMasked(number)
+    {
+        return decorator.isMasked(number);
+    }
+
+    /**
+     * Aplica a máscara num número de cartão de crédito.
+     *
+     * @param {String} number
+     *
+     * @return {String}
+     */
+    static mask(number)
+    {
+        return decorator.mask(number);
+    }
+
+    /**
+     * Remove a máscara de um número de cartão e crédito.
+     *
+     * @param {String} number
+     *
+     * @return {String}
+     */
+    static unMask(number)
+    {
+        return decorator.unMask(number);
+    }
+
+    /**
      * Gera números de cartão de crédito válidos.
      *
      * @param {String} brand  Bandeira desejada.

@@ -209,6 +209,32 @@ describe('Entry Point', function()
             assert.string(CreditCard.identify(data.maskedNumber)).isEqualTo(data.brand);
             done();
         });
+
+        it('Is Masked: ' + data.maskedNumber, function(done)
+        {
+            assert.bool(CreditCard.isMasked(data.maskedNumber)).isTrue();
+            done();
+        });
+
+        it('Masking: ' + data.rawNumber, function(done)
+        {
+            const masked = CreditCard.mask(data.rawNumber);
+            assert.bool(decorator.isMasked(masked)).isTrue();
+            done();
+        });
+
+        it('Is UnMasked: ' + data.rawNumber, function(done)
+        {
+            assert.bool(CreditCard.isMasked(data.rawNumber)).isFalse();
+            done();
+        });
+
+        it('UnMasking: ' + data.rawNumber, function(done)
+        {
+            const unMasked = CreditCard.unMask(data.maskedNumber);
+            assert.bool(decorator.isMasked(unMasked)).isFalse();
+            done();
+        });
     });
 
     it('Initial Values 1', function(done)
