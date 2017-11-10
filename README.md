@@ -114,13 +114,6 @@ Generate
 ```js
 const CreditCard = require('node-creditcard');
 
-const creditcard = new CreditCard({
-    number    : '4532862404969398',
-    holder    : 'FULANO D TAL',
-    expiration: '04/2019',
-    cvv       : '123',
-});
-
 creditcard.generate('VISA');          // returns a VISA UNMASKED number
 creditcard.generate('VISA', true);    // returns a VISA MASKED number
 creditcard.generate('VISA', true, 3); // returns a 3 VISA MASKED numbers
