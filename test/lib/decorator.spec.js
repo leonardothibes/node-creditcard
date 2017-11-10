@@ -46,6 +46,25 @@ const numbers = [
     },
 ];
 
+const expirations = [
+    {
+        input : '09/19',
+        output: '19/09',
+    },
+    {
+        input : '19/09',
+        output: '09/19',
+    },
+    {
+        input : '09/2019',
+        output: '2019/09',
+    },
+    {
+        input : '2019/09',
+        output: '09/2019',
+    },
+];
+
 describe('Decorator', function()
 {
     numbers.forEach(function(number)
@@ -77,6 +96,15 @@ describe('Decorator', function()
         it('UnMask.....: ' + number.masked, function(done)
         {
             assert.string(decorator.unMask(number.masked)).isEqualTo(number.unmasked);
+            done();
+        });
+    });
+
+    expirations.forEach(function(expiration)
+    {
+        it('Reverse Expiration: ' + expiration.input + ' => ' + expiration.output, function(done)
+        {
+            assert.string(decorator.expirationReverse(expiration.input)).isEqualTo(expiration.output);
             done();
         });
     });
