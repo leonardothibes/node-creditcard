@@ -126,14 +126,14 @@ Identify Brand
 ```js
 const CreditCard = require('node-creditcard');
 
-creditcard.identify('4716058940605004');    // returns 'VISA'
-creditcard.identify('4716 0589 4060 5004'); // returns 'VISA'
+CreditCard.identify('4716058940605004');    // returns 'VISA'
+CreditCard.identify('4716 0589 4060 5004'); // returns 'VISA'
 
-creditcard.identify('5194189706731425');    // returns 'MASTERCARD'
-creditcard.identify('5194 1897 0673 1425'); // returns 'MASTERCARD'
+CreditCard.identify('5194189706731425');    // returns 'MASTERCARD'
+CreditCard.identify('5194 1897 0673 1425'); // returns 'MASTERCARD'
 
-creditcard.identify('376921693572268');    // returns 'AMEX'
-creditcard.identify('3769 216935 72268');  // returns 'AMEX'
+CreditCard.identify('376921693572268');    // returns 'AMEX'
+CreditCard.identify('3769 216935 72268');  // returns 'AMEX'
 
 ```
 
@@ -143,11 +143,11 @@ Mask or Unmask Number
 ```js
 const CreditCard = require('node-creditcard');
 
-creditcard.isMasked('4716058940605004'); // returns FALSE
-creditcard.mask('4716058940605004');     // returns '4716 0589 4060 5004'
+CreditCard.isMasked('4716058940605004'); // returns FALSE
+CreditCard.mask('4716058940605004');     // returns '4716 0589 4060 5004'
 
-creditcard.isMasked('4716 0589 4060 5004'); // returns TRUE
-creditcard.unMask('4716 0589 4060 5004');   // returns '4716058940605004'
+CreditCard.isMasked('4716 0589 4060 5004'); // returns TRUE
+CreditCard.unMask('4716 0589 4060 5004');   // returns '4716058940605004'
 
 ```
 
@@ -157,9 +157,9 @@ Generate
 ```js
 const CreditCard = require('node-creditcard');
 
-creditcard.generate('VISA');          // returns a VISA UNMASKED number
-creditcard.generate('VISA', true);    // returns a VISA MASKED number
-creditcard.generate('VISA', true, 3); // returns a 3 VISA MASKED numbers
+CreditCard.generate('VISA');          // returns a VISA UNMASKED number
+CreditCard.generate('VISA', true);    // returns a VISA MASKED number
+CreditCard.generate('VISA', true, 3); // returns a 3 VISA MASKED numbers
 
 ```
 
