@@ -206,4 +206,18 @@ module.exports = class
             cvv       : obfuscator.cvv(this.cvv),
         };
     }
+
+    /**
+     * Gera números de cartão de crédito válidos.
+     *
+     * @param {String} brand  Bandeira desejada.
+     * @param {Bool}   masked Flag que indica se o número será gerado com máscara.
+     * @param {Int}    count  Quantidade de números a serem gerados.
+     *
+     * @return {Array}
+     */
+    static generate(brand, masked, count)
+    {
+        return generator.generate(brand, masked, count);
+    }
 };

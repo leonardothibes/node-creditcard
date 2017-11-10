@@ -1,7 +1,10 @@
 'use strict';
 
-const CreditCard = require('../index'),
-      assert     = require('unit.js');
+const CreditCard    = require('../index'),
+      identificator = require('../lib/identificator'),
+      validator     = require('../lib/validator'),
+      decorator     = require('../lib/decorator'),
+      assert        = require('unit.js');
 
 const validCards = [
     {
@@ -136,6 +139,36 @@ describe('Entry Point', function()
                 holder    : 'FULANO D TAL',
                 expiration: data.expiration,
                 cvv       : data.safeCvv,
+            });
+
+            done();
+        });
+
+        it('Generating UnMasked: ' + data.brand, function(done)
+        {
+            const generated = CreditCard.generate(data.brand);
+            assert.array(generated).hasLength(1);
+
+            generated.forEach(function(number)
+            {
+                assert.bool(validator.validate(number)).isTrue();
+                assert.bool(decorator.isMasked(number)).isFalse();
+                assert.string(identificator.identify(number)).isEqualTo(data.brand.toUpperCase());
+            });
+
+            done();
+        });
+
+        it('Generating Masked: ' + data.brand, function(done)
+        {
+            const generated = CreditCard.generate(data.brand, true);
+            assert.array(generated).hasLength(1);
+
+            generated.forEach(function(number)
+            {
+                assert.bool(validator.validate(number)).isTrue();
+                assert.bool(decorator.isMasked(number)).isTrue();
+                assert.string(identificator.identify(number)).isEqualTo(data.brand.toUpperCase());
             });
 
             done();
