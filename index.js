@@ -22,10 +22,18 @@ module.exports = class
      */
     constructor(card)
     {
-        this.number     = card.number;
-        this.holder     = card.holder;
-        this.expiration = card.expiration;
-        this.cvv        = card.cvv;
+        if (!card) {
+            this.number     = '';
+            this.holder     = '';
+            this.expiration = '';
+            this.cvv        = '';
+            return;
+        }
+
+        this.number     = card.number     || '';
+        this.holder     = card.holder     || '';
+        this.expiration = card.expiration || '';
+        this.cvv        = card.cvv        || '';
     }
 
     /**
@@ -63,7 +71,7 @@ module.exports = class
      *
      * @return {String}
      */
-    get masked()
+    get maskedNumber()
     {
         return decorator.mask(this._number);
     }
@@ -186,6 +194,10 @@ module.exports = class
      */
     getSafeData()
     {
+        if (!this.number) {
+            return this.getData();
+        }
+
         return {
             brand     : this.brand,
             number    : obfuscator.number(this.number),
