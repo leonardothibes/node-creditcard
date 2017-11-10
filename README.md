@@ -122,7 +122,7 @@ creditcard.identify('5194189706731425');    // returns 'MASTERCARD'
 creditcard.identify('5194 1897 0673 1425'); // returns 'MASTERCARD'
 
 creditcard.identify('376921693572268');    // returns 'AMEX'
-creditcard.identify('3769 216935 72268'); // returns 'AMEX'
+creditcard.identify('3769 216935 72268');  // returns 'AMEX'
 
 ```
 
