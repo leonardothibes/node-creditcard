@@ -15,6 +15,7 @@ Examples
 * [Basic Usage](#basic-usage)
 * [Get Data](#get-data)
 * [Get Safe Data](#get-safe-data)
+* [Identify Brand](#identify-brand)
 * [Generate](#generate)
 
 Basic Usage
@@ -106,6 +107,23 @@ The data object returned by __getSafeData()__ will looks like this:
     expiration: '04/2019',
     cvv       : '***',
 }
+```
+
+Identify Brand
+--------------
+
+```js
+const CreditCard = require('node-creditcard');
+
+creditcard.identify('4716058940605004');    // returns 'VISA'
+creditcard.identify('4716 0589 4060 5004'); // returns 'VISA'
+
+creditcard.identify('5194189706731425');    // returns 'MASTERCARD'
+creditcard.identify('5194 1897 0673 1425'); // returns 'MASTERCARD'
+
+creditcard.identify('376921693572268');    // returns 'AMEX'
+creditcard.identify('3769 216935 72268'); // returns 'AMEX'
+
 ```
 
 Generate
