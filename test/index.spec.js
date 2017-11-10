@@ -144,10 +144,22 @@ describe('Entry Point', function()
             done();
         });
 
-        it('Generating UnMasked: ' + data.brand, function(done)
+        it('Generating UnMasked String: ' + data.brand, function(done)
         {
             const generated = CreditCard.generate(data.brand);
-            assert.array(generated).hasLength(1);
+            assert.string(generated);
+
+            assert.bool(validator.validate(generated)).isTrue();
+            assert.bool(decorator.isMasked(generated)).isFalse();
+            assert.string(identificator.identify(generated)).isEqualTo(data.brand.toUpperCase());
+
+            done();
+        });
+
+        it('Generating UnMasked Array: ' + data.brand, function(done)
+        {
+            const generated = CreditCard.generate(data.brand, false, 3);
+            assert.array(generated).hasLength(3);
 
             generated.forEach(function(number)
             {
@@ -159,10 +171,22 @@ describe('Entry Point', function()
             done();
         });
 
-        it('Generating Masked: ' + data.brand, function(done)
+        it('Generating Masked String: ' + data.brand, function(done)
         {
             const generated = CreditCard.generate(data.brand, true);
-            assert.array(generated).hasLength(1);
+            assert.string(generated);
+
+            assert.bool(validator.validate(generated)).isTrue();
+            assert.bool(decorator.isMasked(generated)).isTrue();
+            assert.string(identificator.identify(generated)).isEqualTo(data.brand.toUpperCase());
+
+            done();
+        });
+
+        it('Generating Masked Array: ' + data.brand, function(done)
+        {
+            const generated = CreditCard.generate(data.brand, true, 3);
+            assert.array(generated).hasLength(3);
 
             generated.forEach(function(number)
             {

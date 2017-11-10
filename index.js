@@ -218,6 +218,8 @@ module.exports = class
      */
     static generate(brand, masked, count)
     {
-        return generator.generate(brand, masked, count);
+        const generated = generator.generate(brand, masked, count);
+
+        return (generated.length === 1) ? generated[0] : generated;
     }
 };
