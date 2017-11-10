@@ -133,6 +133,9 @@ describe('Entry Point', function()
                 expiration: data.expiration,
             });
 
+            assert.string(card.safeNumber).isEqualTo(data.safeNumber);
+            assert.string(card.safeCvv).isEqualTo(data.safeCvv);
+
             assert.object(card.getSafeData()).is({
                 brand     : data.brand,
                 number    : data.safeNumber,

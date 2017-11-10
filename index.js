@@ -77,6 +77,16 @@ module.exports = class
     }
 
     /**
+     * Número do cartão ofuscado.
+     *
+     * @return {String}
+     */
+    get safeNumber()
+    {
+        return obfuscator.number(this._number);
+    }
+
+    /**
      * @param {String} holder
      */
     set holder(holder)
@@ -135,6 +145,16 @@ module.exports = class
     get cvv()
     {
         return this._cvv;
+    }
+
+    /**
+     * Código de segurança do cartão ofuscado.
+     *
+     * @return {String}
+     */
+    get safeCvv()
+    {
+        return obfuscator.cvv(this._cvv);
     }
 
     /**
