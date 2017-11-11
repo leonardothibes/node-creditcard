@@ -1,4 +1,4 @@
-# node-creditcard [![NPM Package](https://badge.fury.io/js/node-creditcard.svg)](https://www.npmjs.com/package/node-creditcard) ![Downloads](https://img.shields.io/npm/dm/node-creditcard.svg) [![Build Status](https://secure.travis-ci.org/leonardothibes/node-creditcard.png)](http://travis-ci.org/leonardothibes/node-creditcard) [![Package Quality](http://npm.packagequality.com/shield/node-creditcard.svg)](http://packagequality.com/#?package=node-creditcard)
+# CreditCard [![npm](http://img.shields.io/npm/v/node-creditcard.svg)](https://www.npmjs.com/package/node-creditcard) ![Downloads](https://img.shields.io/npm/dm/node-creditcard.svg) [![Build Status](https://secure.travis-ci.org/leonardothibes/node-creditcard.png)](http://travis-ci.org/leonardothibes/node-creditcard) [![Package Quality](http://npm.packagequality.com/shield/node-creditcard.svg)](http://packagequality.com/#?package=node-creditcard)
 
 Utilities functions for credit cards treatment.
 
