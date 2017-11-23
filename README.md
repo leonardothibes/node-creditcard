@@ -2,7 +2,15 @@
 
 Utilities functions for credit cards treatment.
 
-Supported Brands:
+Pay me a Coffee
+---------------
+
+If this component was useful for you, or one of your projects, please help to support my work clicking in the button below and making a donation via PayPal:
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=leonardothibes%40gmail%2ecom&lc=BR&item_name=Leonardo%20Thibes&item_number=node%2dcreditcard&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest)
+
+Supported Brands
+----------------
 
 * VISA
 * MASTERCARD
