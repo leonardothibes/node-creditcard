@@ -1,6 +1,6 @@
 {
   "name": "node-creditcard",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Utilities functions for credit cards treatment",
   "main": "index.js",
   "homepage": "https://github.com/leonardothibes/node-creditcard#readme",
