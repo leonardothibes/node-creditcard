@@ -21,6 +21,14 @@ const cards = [
         brand : 'VISA',
     },
     {
+        number: '6367 0000 0000 1022',
+        brand : 'VISA',
+    },
+    {
+        number: '6367000000001022',
+        brand : 'VISA',
+    },
+    {
         number: '5244430837858152',
         brand : 'MASTERCARD',
     },
